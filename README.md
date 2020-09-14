@@ -1,2 +1,2 @@
 # dontgoogleit
-Health anexiety? Don't google it
+Health anxiety? Don't google it
