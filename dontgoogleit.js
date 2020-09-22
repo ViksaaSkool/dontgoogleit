@@ -72,7 +72,7 @@ function onResponseReady(response_text) {
   gifs = localStorage.getItem(GIFS_LIST)
   gifs_list = JSON.parse(gifs);
 
-  console.log(JSON.parse(gifs)[45])
+  load_gif()
 
 }
 
@@ -88,7 +88,6 @@ function load_gif() {
   //document.getElementById("cat_gif").src = gifs_list[0]
   document.getElementById("cat_gif").style.backgroundImage = "url(" + gifs_list[0] + ")"
   gifs_list.splice(0, 1)
-  console.log(gifs_list.length)
   if (gifs_list.length == 0) {
     gifs = null
     localStorage.setItem(GIFS_LIST, gifs);
