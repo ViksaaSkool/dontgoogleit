@@ -72,7 +72,8 @@ function onResponseReady(response_text) {
   gifs = localStorage.getItem(GIFS_LIST)
   gifs_list = JSON.parse(gifs);
 
-  load_gif()
+  document.getElementById("cat_gif").style.backgroundImage = "url(" + gifs_list[0] + ")"
+  gifs_list.splice(0, 1)
 
 }
 
