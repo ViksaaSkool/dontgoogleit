@@ -11,9 +11,10 @@ var gifs = localStorage.getItem(GIFS_LIST);
 var gifs_list = null;
 var gifs_loading = false;
 
-/* Gifs */
+/* init methods */
 window.onload = function() {
   grab_data(onResponseReady);
+  setThemeSwitcher()
 };
 
 /* Util methods */
@@ -30,7 +31,7 @@ function generate_random_index(list_lenght) {
 }
 
 
-/* Gif loadging */
+/* Gif loadging related */
 function grab_data(callback) {
   console.log(hasGifsStored())
   if (hasGifsStored()) {
@@ -95,25 +96,9 @@ function load_gif() {
   }
 }
 
-
 /* Theme related */
-// const toggle = document.getElementById('toggle');
-// const body = document.body;
-//
-// toggle.addEventListener('input', e => {
-//   const isChecked = e.target.checked;
-//
-//   if (isChecked) {
-//     body.classList.add('dark-mode');
-//   } else {
-//     body.classList.remove('dark-mode');
-//   }
-//
-//   //  body.classList.toggle("dark-mode")
-//
-// });
-
-function switchTheme() {
-  var element = document.body;
-  element.classList.toggle("dark-mode");
+function setThemeSwitcher() {
+  document.getElementById('toggle').addEventListener('input', e => {
+    document.body.classList.toggle("dark-mode");
+  });
 }

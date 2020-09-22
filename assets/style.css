@@ -1,11 +1,14 @@
-@import "compass/css3";
+:root {
+  --dark-color: #181514;
+  --light-color: #ece8e5;
+}
 
 body.dark-mode {
-  background-color: #181514;
+  background-color: var(--dark-color);
 }
 
 body {
-  background-color: #ece8e5;
+  background-color: var(--light-color);
 }
 
 .titleText {
@@ -49,37 +52,35 @@ img:not(.png) {
 }
 
 .toggle label {
-  background-color: #777;
-  border: 2px solid #555;
-  border-radius: 25px;
+  background-color: var(--dark-color);
+  border: 2px solid var(--light-color);
+  border-radius: 9px;
   cursor: pointer;
   display: inline-block;
   position: relative;
   transition: all ease-in-out 0.3s;
-  width: 50px;
-  height: 28px;
+  width: 29px;
+  height: 17px;
 }
 
 .toggle label::after {
-  background-color: #555;
+  background-color: var(--light-color);
   border-radius: 50%;
   content: ' ';
   cursor: pointer;
   display: inline-block;
   position: absolute;
-  left: 2px;
-  top: 2px;
   transition: all ease-in-out 0.3s;
-  width: 25px;
-  height: 26px;
+  width: 18px;
+  height: 18px;
 }
 
 .toggle input[type='checkbox']:checked~label {
-  background-color: #ece8e5;
-  border-color: #181514;
+  background-color: var(--light-color);
+  border-color: var(--light-color);
 }
 
 .toggle input[type='checkbox']:checked~label::after {
-  background-color: #0054b0;
-  transform: translateX(23px);
+  background-color: var(--dark-color);
+  transform: translateX(12px);
 }
