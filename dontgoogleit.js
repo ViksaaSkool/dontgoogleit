@@ -11,10 +11,12 @@ var gifs = localStorage.getItem(GIFS_LIST);
 var gifs_list = null;
 var gifs_loading = false;
 
+/* Gifs */
 window.onload = function() {
   grab_data(onResponseReady);
 };
 
+/* Util methods */
 function generate_search_url() {
   return BASE_URL + generate_random_search_term() + PARAM_KEY + API_KEY + PARAM_LIMIT + LIMIT;
 }
@@ -27,6 +29,8 @@ function generate_random_index(list_lenght) {
   return Math.floor((Math.random() * list_lenght));
 }
 
+
+/* Gif loadging */
 function grab_data(callback) {
   console.log(hasGifsStored())
   if (hasGifsStored()) {
@@ -52,23 +56,7 @@ function grab_data(callback) {
 }
 
 function hasGifsStored() {
-  return (gifs != null && JSON.parse(gifs).length > 0) || typeof gifs !== 'undefined'
-}
-
-function load_gif() {
-  if (gifs_loading) {
-    return
-  }
-
-  if (gifs_list == null) {
-    gifs_list = JSON.parse(gifs);
-  }
-
-  document.getElementById("preview_gif").src = gifs_list[0]
-  gifs_list.splice(0, 1)
-  if (gifs_list.length == 0) {
-    grab_data(onResponseReady);
-  }
+  return gifs != null && JSON.parse(gifs).length > 0 && typeof gifs !== 'undefined'
 }
 
 function onResponseReady(response_text) {
@@ -85,4 +73,47 @@ function onResponseReady(response_text) {
 
   console.log(JSON.parse(gifs)[45])
 
+}
+
+function load_gif() {
+  if (gifs_loading) {
+    return
+  }
+
+  if (gifs_list == null) {
+    gifs_list = JSON.parse(gifs);
+  }
+
+  //document.getElementById("cat_gif").src = gifs_list[0]
+  document.getElementById("cat_gif").style.backgroundImage = "url(" + gifs_list[0] + ")"
+  gifs_list.splice(0, 1)
+  console.log(gifs_list.length)
+  if (gifs_list.length == 0) {
+    gifs = null
+    localStorage.setItem(GIFS_LIST, gifs);
+    grab_data(onResponseReady);
+  }
+}
+
+
+/* Theme related */
+// const toggle = document.getElementById('toggle');
+// const body = document.body;
+//
+// toggle.addEventListener('input', e => {
+//   const isChecked = e.target.checked;
+//
+//   if (isChecked) {
+//     body.classList.add('dark-mode');
+//   } else {
+//     body.classList.remove('dark-mode');
+//   }
+//
+//   //  body.classList.toggle("dark-mode")
+//
+// });
+
+function switchTheme() {
+  var element = document.body;
+  element.classList.toggle("dark-mode");
 }

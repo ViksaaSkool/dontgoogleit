@@ -1,0 +1,85 @@
+@import "compass/css3";
+
+body.dark-mode {
+  background-color: #181514;
+}
+
+body {
+  background-color: #ece8e5;
+}
+
+.titleText {
+  width: 70%;
+  margin: 0 auto;
+}
+
+.next {
+  width: 10%;
+  margin: 0 auto;
+}
+
+.share-items {
+  display: flex;
+  justify-content: center;
+  margin-top: 5%;
+}
+
+.gifs {
+  margin-top: 5%;
+  margin-bottom: 1%;
+  margin: 0 auto;
+  width: 40%;
+  height: 40%;
+  background-repeat: no-repeat;
+}
+
+.gifs-img-tag {
+  margin: 0 auto;
+  background-repeat: no-repeat;
+}
+
+/* Required to make image fluid in IE */
+img:not(.png) {
+  width: 100%;
+}
+
+/* Dark Light */
+.toggle input[type='checkbox'] {
+  display: none;
+}
+
+.toggle label {
+  background-color: #777;
+  border: 2px solid #555;
+  border-radius: 25px;
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: all ease-in-out 0.3s;
+  width: 50px;
+  height: 28px;
+}
+
+.toggle label::after {
+  background-color: #555;
+  border-radius: 50%;
+  content: ' ';
+  cursor: pointer;
+  display: inline-block;
+  position: absolute;
+  left: 2px;
+  top: 2px;
+  transition: all ease-in-out 0.3s;
+  width: 25px;
+  height: 26px;
+}
+
+.toggle input[type='checkbox']:checked~label {
+  background-color: #ece8e5;
+  border-color: #181514;
+}
+
+.toggle input[type='checkbox']:checked~label::after {
+  background-color: #0054b0;
+  transform: translateX(23px);
+}
